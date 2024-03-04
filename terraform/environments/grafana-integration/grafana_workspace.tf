@@ -1,5 +1,5 @@
 module "grafana_workspace" {
-  source = "./modules/cap-tf-module-grafana-workspace"
+  source = "./modules/tf-module-grafana-workspace"
   enable = local.in_default_workspace
 
   git_repository         = var.git_repository
