@@ -72,14 +72,3 @@ data "terraform_remote_state" "cap" {
 
 data "aws_caller_identity" "current" {}
 
-module "jobstats" {
-  source = "./jobStats"
-  project = var.project
-  region = var.region
-  stage = var.stage
-  cap_consumer_ap_remote_state_file = data.terraform_remote_state.cap
-  jobs_stats_s3_bucket_arn = module.job-statistics-logging.s3_arn
-  jobs_stats_s3_bucket_kms_arn = module.job-statistics-logging.aws_kms_key_arn
-  apptio_jobs_stats_s3_bucket_arn = module.apptio-job-statistics-logging.s3_arn
-  apptio_jobs_stats_s3_bucket_kms_arn = module.apptio-job-statistics-logging.aws_kms_key_arn
-}
